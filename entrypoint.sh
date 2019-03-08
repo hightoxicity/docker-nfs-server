@@ -573,7 +573,7 @@ boot_main_nfsd() {
   read -r -a version_flags <<< "$(boot_helper_get_version_flags)"
   local -r threads=$(get_requested_count_nfsd_threads)
   local -r port=$(get_requested_port_nfsd)
-  local -r args=('--debug' 8 '--tcp' '--udp' '--port' "$port" "${version_flags[@]}" "$threads")
+  local -r args=('--debug' 8 '--port' "$port" "${version_flags[@]}" "$threads")
 
   log "starting rpc.nfsd on port $port with $threads server thread(s)"
   $PATH_BIN_NFSD "${args[@]}"
